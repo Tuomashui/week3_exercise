@@ -8,42 +8,65 @@
 </head>
 
 <body>
+	<div class="center">
+	<h1>Municipality employment statistics in Finland</h1>
 	<table>
+		<tbody id="table-body" >
+			<td id="td-municipality"></td>
+			<td id="td-population"></td>
+			<td id="td-employment"></td>
+		</tbody>
 		<thead>
 			<th id="municipality">municipality</th>
 			<th id="population">population</th>
+			<th id="employment">Employment amount</th>
 		</thead>
-		<tbody id="table-body">
-		</tbody>
 	</table>
+</div>
 </body>
 	<script>
-		const municipality = document.getElementById("municipality");
-		const population = document.getElementById("population");
-		const tablebody = document.getElementById("table-body");
+		
+		const municipality = document.getElementById("td-municipality")
+		const population = document.getElementById("td-population")
+		const employmentTd = document.getElementById("td-employment")
+			const url1 = "https://statfin.stat.fi/PxWeb/sq/4e244893-7761-4c4f-8e55-7a8d41d86eff";
 
-			const url = "https://statfin.stat.fi/PxWeb/sq/4e244893-7761-4c4f-8e55-7a8d41d86eff";
-
-			fetch(url)
+			fetch(url1)
 			.then((response) => response.json())
 			.then((data) => {
-				Object.values(data).forEach((dataset) => {
-				console.log(Object.values(dataset.dimension.Alue.category.label));
-				console.log(Object.values(dataset.value));
-      
+			Object.values(data).forEach((dataset) => {
 			Object.values(dataset.dimension.Alue.category.label).forEach((label, index) => {
-				let tr = document.createElement("tr");
+				let tr1 = document.createElement("tr");
+				let tr2 = document.createElement("tr");
 				let munitd = document.createElement("td");
 				let populationtd = document.createElement("td");
 				munitd.innerText = label;
 				populationtd.innerText = Object.values(dataset.value)[index];
-				tr.appendChild(munitd);
-				tr.appendChild(populationtd);
-				tablebody.appendChild(tr);
+				tr1.appendChild(munitd);
+				tr2.appendChild(populationtd);
+				municipality.appendChild(tr1);
+				population.appendChild(tr2);
 					});
 				});
 			});
 
+			const url2 = "https://statfin.stat.fi/PxWeb/sq/5e288b40-f8c8-4f1e-b3b0-61b86ce5c065"
+			fetch(url2)
+			.then((response) => response.json())
+			.then((data2) => {
+				Object.values(data2).forEach((dataset2) => {
+					
+				Object.values(dataset2.value).forEach((value, index) => {
+				let tr2 = document.createElement("tr");
+				let employmentTd1 = document.createElement("td");
+				employmentTd1.innerText = Object.values(dataset2.value)[index];
+				tr2.appendChild(employmentTd1);
+
+
+				employmentTd.appendChild(tr2);
+				});
+			});
+		});
 	</script>
 
 </html>
