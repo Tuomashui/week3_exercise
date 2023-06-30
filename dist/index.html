@@ -26,21 +26,24 @@
 
 			fetch(url)
 			.then((response) => response.json())
-  			.then((data) => {
-			Object.values(data).forEach((dataset, index) => {
-				let tr = document.createElement("tr")
+			.then((data) => {
+				Object.values(data).forEach((dataset) => {
+				console.log(Object.values(dataset.dimension.Alue.category.label));
+				console.log(Object.values(dataset.value));
+      
+			Object.values(dataset.dimension.Alue.category.label).forEach((label, index) => {
+				let tr = document.createElement("tr");
 				let munitd = document.createElement("td");
 				let populationtd = document.createElement("td");
-				munitd.innerText = Object.values(dataset.dimension.Alue.category.label)[index];
-				populationtd.innerText = dataset.value[index];
-				
+				munitd.innerText = label;
+				populationtd.innerText = Object.values(dataset.value)[index];
 				tr.appendChild(munitd);
 				tr.appendChild(populationtd);
-				
 				tablebody.appendChild(tr);
-			})
-		})
-				
+					});
+				});
+			});
+
 	</script>
 
 </html>
