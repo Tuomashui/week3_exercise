@@ -4,15 +4,43 @@
 <head>
 	<title>Parcel Sandbox</title>
 	<meta charset="UTF-8">
-<link rel="stylesheet" href="/src.a2b27638.css"></head>
+<link rel="stylesheet" href="/src.a2b27638.css">
+</head>
 
 <body>
-	<h1>hellokit</h1>
-	
-	<div id="app"></div>
-
-	<script src="/src.a2b27638.js">
-	</script>
+	<table>
+		<thead>
+			<th id="municipality">municipality</th>
+			<th id="population">population</th>
+		</thead>
+		<tbody id="table-body">
+		</tbody>
+	</table>
 </body>
+	<script>
+		const municipality = document.getElementById("municipality");
+		const population = document.getElementById("population");
+		const tablebody = document.getElementById("table-body");
+
+			const url = "https://statfin.stat.fi/PxWeb/sq/4e244893-7761-4c4f-8e55-7a8d41d86eff";
+
+			fetch(url)
+			.then((response) => response.json())
+  			.then((data) => {
+			Object.values(data).forEach((dataset, index) => {
+				let tr = document.createElement("tr")
+				let munitd = document.createElement("td");
+				let populationtd = document.createElement("td");
+				munitd.innerText = Object.values(dataset.dimension.Alue.category.label)[index];
+				populationtd.innerText = dataset.value[index];
+				
+				tr.appendChild(munitd);
+				tr.appendChild(populationtd);
+				
+				tablebody.appendChild(tr);
+			})
+		})
+				
+	</script>
 
 </html>
