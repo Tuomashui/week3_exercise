@@ -2,25 +2,26 @@ body {
   font-family:Verdana, Arial, sans-serif;
 }
 
+#table {
+  border-collapse: collapse;
+  font-size: 16px;
+  text-align: left;
 
-table, td {
+}
+
+#table, td {
   padding: 6px;
   border-bottom: 1px solid gray;
 }
 
-table, th {
+#table, thead {
   background-color: #b7d0ff;
   font: bold;
   padding: 12px 0px 12px 6px;
   border-bottom: 2px solid gray;
 }
 
-table {
-  border-collapse: collapse;
-  font-size: 16px;
-  text-align: left;
 
-}
 
 div {
   margin: auto;
