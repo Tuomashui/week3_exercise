@@ -1,0 +1,41 @@
+body {
+  font-family:Verdana, Arial, sans-serif;
+}
+
+#table {
+  border-collapse: collapse;
+  font-size: 16px;
+  text-align: left;
+
+}
+
+#table, td {
+  padding: 6px;
+  border-bottom: 1px solid gray;
+}
+
+#table, thead {
+  background-color: #b7d0ff;
+  font: bold;
+  padding: 12px 0px 12px 6px;
+  border-bottom: 2px solid gray;
+}
+
+
+
+div {
+  margin: auto;
+  padding: 60px;
+  width: 60%;
+}
+
+div > table{
+  table-layout: fixed;
+  width: 100%;
+}
+div > h1 {
+  text-align: center;
+}
+
+
+/*# sourceMappingURL=/styles.dd855970.css.map */
