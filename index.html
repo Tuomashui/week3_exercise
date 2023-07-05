@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>Parcel Sandbox</title>
 	<meta charset="UTF-8">
@@ -11,17 +10,16 @@
 	<div class="center">
 	<h1>Municipality employment statistics in Finland</h1>
 	<table>
-		
-			<td id="td-municipality"></td>
-			<td id="td-population"></td>
-			<td id="td-employment"></td>
-		
 		<thead>
 			<th id="municipality">Municipality</th>
 			<th id="population">Population</th>
 			<th id="employment">Employment</th>
 		</thead>
-		<tbody id="table-body" ></tbody>
+		<tbody id="table-body" >
+			<td id="td-municipality"></td>
+			<td id="td-population"></td>
+			<td id="td-employment"></td>
+		</tbody>
 	</table>
 </div>
 </body>
@@ -62,8 +60,6 @@
 				let employmentTd1 = document.createElement("td");
 				employmentTd1.innerText = Object.values(dataset2.value)[index];
 				tr2.appendChild(employmentTd1);
-
-
 				employmentTd.appendChild(tr2);
 				});
 			});
