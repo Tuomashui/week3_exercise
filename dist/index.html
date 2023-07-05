@@ -4,8 +4,8 @@
 <head>
 	<title>Parcel Sandbox</title>
 	<meta charset="UTF-8">
-<link rel="stylesheet" href="/src.a2b27638.css">
-</head>
+<link rel="stylesheet" href="/styles.dd855970.css">
+<script src="/styles.dd855970.js"></script></head>
 
 <body>
 	<div class="center">
@@ -21,53 +21,45 @@
 			<th id="population">Population</th>
 			<th id="employment">Employment</th>
 		</thead>
-		<tbody id="table-body" ></tbody>
+		<tbody id="table-body"></tbody>
 	</table>
 </div>
 </body>
-	<script>
-		
-		const municipality = document.getElementById("td-municipality")
-		const population = document.getElementById("td-population")
-		const employmentTd = document.getElementById("td-employment")
-			const url1 = "https://statfin.stat.fi/PxWeb/sq/4e244893-7761-4c4f-8e55-7a8d41d86eff";
-
-			fetch(url1)
-			.then((response) => response.json())
-			.then((data) => {
-			Object.values(data).forEach((dataset) => {
-			Object.values(dataset.dimension.Alue.category.label).forEach((label, index) => {
-				let tr1 = document.createElement("tr");
-				let tr2 = document.createElement("tr");
-				let munitd = document.createElement("td");
-				let populationtd = document.createElement("td");
-				munitd.innerText = label;
-				populationtd.innerText = Object.values(dataset.value)[index];
-				tr1.appendChild(munitd);
-				tr2.appendChild(populationtd);
-				municipality.appendChild(tr1);
-				population.appendChild(tr2);
-					});
-				});
-			});
-
-			const url2 = "https://statfin.stat.fi/PxWeb/sq/5e288b40-f8c8-4f1e-b3b0-61b86ce5c065"
-			fetch(url2)
-			.then((response) => response.json())
-			.then((data2) => {
-				Object.values(data2).forEach((dataset2) => {
-					
-				Object.values(dataset2.value).forEach((value, index) => {
-				let tr2 = document.createElement("tr");
-				let employmentTd1 = document.createElement("td");
-				employmentTd1.innerText = Object.values(dataset2.value)[index];
-				tr2.appendChild(employmentTd1);
-
-
-				employmentTd.appendChild(tr2);
-				});
-			});
-		});
-	</script>
+	<script>var municipality = document.getElementById("td-municipality");
+var population = document.getElementById("td-population");
+var employmentTd = document.getElementById("td-employment");
+var url1 = "https://statfin.stat.fi/PxWeb/sq/4e244893-7761-4c4f-8e55-7a8d41d86eff";
+fetch(url1).then(function (response) {
+  return response.json();
+}).then(function (data) {
+  Object.values(data).forEach(function (dataset) {
+    Object.values(dataset.dimension.Alue.category.label).forEach(function (label, index) {
+      var tr1 = document.createElement("tr");
+      var tr2 = document.createElement("tr");
+      var munitd = document.createElement("td");
+      var populationtd = document.createElement("td");
+      munitd.innerText = label;
+      populationtd.innerText = Object.values(dataset.value)[index];
+      tr1.appendChild(munitd);
+      tr2.appendChild(populationtd);
+      municipality.appendChild(tr1);
+      population.appendChild(tr2);
+    });
+  });
+});
+var url2 = "https://statfin.stat.fi/PxWeb/sq/5e288b40-f8c8-4f1e-b3b0-61b86ce5c065";
+fetch(url2).then(function (response) {
+  return response.json();
+}).then(function (data2) {
+  Object.values(data2).forEach(function (dataset2) {
+    Object.values(dataset2.value).forEach(function (value, index) {
+      var tr2 = document.createElement("tr");
+      var employmentTd1 = document.createElement("td");
+      employmentTd1.innerText = Object.values(dataset2.value)[index];
+      tr2.appendChild(employmentTd1);
+      employmentTd.appendChild(tr2);
+    });
+  });
+});</script>
 
 </html>
